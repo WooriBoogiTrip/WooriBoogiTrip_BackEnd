@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ssafy.member.model.dao.MemberDao">
+
+    <select id="idCheck" parameterType="string" resultType="int">
+        SELECT COUNT(*) FROM member WHERE userId = #{userId}
+    </select>
+
+	<insert id="joinMember" parameterType="com.ssafy.member.model.MemberDto">
+	    INSERT INTO member (
+	        userId, 
+	        userName, 
+	        userPwd, 
+	        email, 
+	        sido, 
+	        gungu, 
+	        joinDate
+	    ) VALUES (
+	        #{userId}, 
+	        #{userName}, 
+	        #{userPwd}, 
+			#{email},
+	        #{sido}, 
+	        #{gungu}, 
+	        #{joinDate}
+	    )
+	</insert>
+
+    <select id="loginMember" parameterType="com.ssafy.member.model.MemberDto" resultType="com.ssafy.member.model.MemberDto">
+        SELECT * FROM member WHERE userId = #{userId} AND userPwd = #{userPwd}
+    </select>
+
+    <update id="updateMember" parameterType="com.ssafy.member.model.MemberDto">
+        UPDATE member 
+        SET userPwd = #{userPwd}, userName = #{userName}
+        WHERE userId = #{userId}
+    </update>
+
+    <delete id="deleteMember" parameterType="string">
+        DELETE FROM member WHERE userId = #{userId}
+    </delete>
+    
+    <select id="getMemberBoards" parameterType="string" resultType="com.ssafy.board.model.BoardDto">
+        SELECT * FROM board WHERE userId = #{userId}
+    </select>
+    
+	<select id="findMemberByEmail" parameterType="string" resultType="com.ssafy.member.model.MemberDto">
+	    SELECT * FROM member WHERE email = #{email}
+	</select>
+	
+	<select id="findAll" parameterType="map" resultType="com.ssafy.member.model.MemberDto">
+		SELECT * FROM member
+	</select>
+    
+
+</mapper>
