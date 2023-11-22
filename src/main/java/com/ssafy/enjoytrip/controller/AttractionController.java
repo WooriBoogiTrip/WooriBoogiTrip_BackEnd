@@ -36,7 +36,21 @@ public class AttractionController {
     }
 
     @GetMapping("/list")
-    public ResponseEntity<List<AttractionInfoDto>> getList(AttractionInfoDto info) {
+    public ResponseEntity<List<AttractionInfoDto>> getList(
+            @RequestParam(required = false) Integer contentTypeId,
+            @RequestParam(required = false) Integer sidoCode,
+            @RequestParam(required = false) Integer gugunCode) {
+        AttractionInfoDto info = new AttractionInfoDto();
+
+        if (contentTypeId != null) {
+            info.setContentTypeId(contentTypeId);
+        }
+        if (sidoCode != null) {
+            info.setSidoCode(sidoCode);
+        }
+        if (gugunCode != null) {
+            info.setGugunCode(gugunCode);
+        }
         List<AttractionInfoDto> attractionList = attractionService.selectAttractioninfo(info);
         return new ResponseEntity<>(attractionList, HttpStatus.OK);
     }

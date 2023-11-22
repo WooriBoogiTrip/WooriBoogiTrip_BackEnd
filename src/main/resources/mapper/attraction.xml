@@ -4,7 +4,35 @@
 	<select id="selectAttraction" parameterType="int" resultType="com.ssafy.enjoytrip.model.AttractionInfoDto"> 
 		SELECT * FROM attraction_info WHERE contentId = #{contentId} 
 	</select>
-	<select id="selectAttractioninfo" parameterType="com.ssafy.enjoytrip.model.AttractionInfoDto" resultType="com.ssafy.enjoytrip.model.AttractionInfoDto"> 
-		SELECT * FROM attraction_info WHERE content_type_id = #{contentTypeId} 
+	<select id="selectAttractioninfo" parameterType="com.ssafy.enjoytrip.model.AttractionInfoDto" resultType="com.ssafy.enjoytrip.model.AttractionInfoDto">
+	    SELECT content_id AS contentId, 
+	           content_type_id AS contentTypeId, 
+	           title, 
+	           addr1, 
+	           addr2, 
+	           zipcode AS zipCode, 
+	           tel, 
+	           first_image AS firstImage, 
+	           first_image2 AS firstImage2, 
+	           readcount, 
+	           sido_code AS sidoCode, 
+	           gugun_code AS gugunCode, 
+	           latitude, 
+	           longitude, 
+	           mlevel 
+	    FROM attraction_info
+	    <where>
+	        <if test="contentTypeId != null and contentTypeId != 0">
+	            AND content_type_id = #{contentTypeId}
+	        </if>
+	        <if test="sidoCode != null and sidoCode != 0">
+	            AND sido_code = #{sidoCode}
+	        </if>
+	        <if test="gugunCode != null and gugunCode != 0">
+	            AND gugun_code = #{gugunCode}
+	        </if>
+	    </where>
 	</select>
+
+
 </mapper>

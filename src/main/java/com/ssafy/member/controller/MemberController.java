@@ -26,10 +26,10 @@ public class MemberController {
     @Autowired
     private JavaMailSender mailSender;
 
-    @GetMapping("/idcheck")
-    public ResponseEntity<String> checkId(@RequestParam String checkid) {
-        int cnt = memberService.idCheck(checkid);
-        return new ResponseEntity<>(checkid + "," + cnt, HttpStatus.OK);
+    @GetMapping("/checkUserId")
+    public ResponseEntity<Boolean> checkUserId(@RequestParam String userId) {
+        boolean exists = memberService.idCheck(userId) > 0;
+        return new ResponseEntity<>(exists, HttpStatus.OK);
     }
     
     @GetMapping("/mypage")
