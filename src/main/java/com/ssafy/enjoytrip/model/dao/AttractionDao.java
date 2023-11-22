@@ -9,8 +9,9 @@ import com.ssafy.enjoytrip.model.AttractionInfoDto;
 @Mapper
 public interface AttractionDao {
 
-	List<AttractionInfoDto> attractionList(AttractionInfoDto attractionInfoDto);
-	List<AttractionInfoDto> searchByTitle(String title, int sidoCode);
-	List<AttractionInfoDto> getKoreaTouristSpots(int sidoCode);
+	List<AttractionInfoDto> selectAttractioninfo(AttractionInfoDto info);
+
+	AttractionInfoDto selectAttraction(int contentId);
 
 }
+

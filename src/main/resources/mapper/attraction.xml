@@ -1,20 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ssafy.enjoytrip.model.dao.AttractionDao">
-    <select id="attractionList" parameterType="com.ssafy.enjoytrip.model.AttractionInfoDto" resultType="com.ssafy.enjoytrip.model.AttractionInfoDto">
-        SELECT * from attraction_info 
-        WHERE sido_code = #{sidoCode} and 
-              content_type_id = #{contentTypeId}
-    </select>
-    <select id="searchByTitle" parameterType="map" resultType="com.ssafy.enjoytrip.model.AttractionInfoDto">
-        SELECT * from attraction_info 
-        WHERE sido_code = #{sidoCode} and title like #{title}
-    </select>
-    <select id="getKoreaTouristSpots" parameterType="int" resultType="com.ssafy.enjoytrip.model.AttractionInfoDto">
-        select content_id contentId, content_type_id contentTypeId, 
-        		title, addr1, addr2, zipcode zipCode, tel, 
-        		first_image firstImage, first_image2 firstImage2, readcount, 
-        		sido_code sidoCode, gugun_code gugunCode, latitude, longitude, mlevel
-         FROM attraction_info WHERE sido_code = #{sidoCode}
-    </select>
+	<select id="selectAttraction" parameterType="int" resultType="com.ssafy.enjoytrip.model.AttractionInfoDto"> 
+		SELECT * FROM attraction_info WHERE contentId = #{contentId} 
+	</select>
+	<select id="selectAttractioninfo" parameterType="com.ssafy.enjoytrip.model.AttractionInfoDto" resultType="com.ssafy.enjoytrip.model.AttractionInfoDto"> 
+		SELECT * FROM attraction_info WHERE content_type_id = #{contentTypeId} 
+	</select>
 </mapper>

@@ -6,10 +6,8 @@ import com.ssafy.enjoytrip.model.AttractionInfoDto;
 
 public interface AttractionService {
 
-	List<AttractionInfoDto> attractionList(AttractionInfoDto attractionInfoDto);
+	List<AttractionInfoDto> selectAttractioninfo(AttractionInfoDto info);
 
-	List<AttractionInfoDto> searchByTitle(String title, int sidoCode);
+	AttractionInfoDto selectAttraction(int contentId);
 
-	List<AttractionInfoDto> getKoreaTouristSpots(int sidoCode);
-	
 }
