@@ -21,8 +21,8 @@ public class SidoGugunServiceImpl implements SidoGugunService {
 	}
 
 	@Override
-	public List<GugunDto> gugunList(int sidoCode) {
-		return sidoGugunDao.gugunList(sidoCode);
+	public List<GugunDto> gugunList() {
+		return sidoGugunDao.gugunList();
 	}
 
 }
