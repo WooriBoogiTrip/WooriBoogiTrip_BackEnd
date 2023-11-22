@@ -13,16 +13,14 @@
 	        userPwd, 
 	        email, 
 	        sido, 
-	        gungu, 
-	        joinDate
+	        gungu
 	    ) VALUES (
 	        #{userId}, 
 	        #{userName}, 
 	        #{userPwd}, 
-			#{email},
+	        #{email},
 	        #{sido}, 
-	        #{gungu}, 
-	        #{joinDate}
+	        #{gungu}
 	    )
 	</insert>
 

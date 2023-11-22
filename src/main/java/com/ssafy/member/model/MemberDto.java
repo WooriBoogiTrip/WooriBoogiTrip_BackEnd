@@ -6,7 +6,7 @@ import javax.validation.constraints.NotBlank;
 
 import com.ssafy.board.model.BoardDto;
 
-public class MemberDto {
+public class MemberDto extends BaseTimeEntity{
 
 	@NotBlank(message = "User ID is required")
 	private String userId;
@@ -22,8 +22,6 @@ public class MemberDto {
 	private String sido;
 	
 	private String gungu;
-	
-	private String joinDate;
 	
 	private MemberRole role;
 	
@@ -61,14 +59,6 @@ public class MemberDto {
 		this.email = email;
 	}
 
-	public String getJoinDate() {
-		return joinDate;
-	}
-
-	public void setJoinDate(String joinDate) {
-		this.joinDate = joinDate;
-	}
-	
 	public String getSido() {
 		return sido;
 	}
@@ -101,12 +91,11 @@ public class MemberDto {
 		this.role = role;
 	}
 
-
     @Override
     public String toString() {
         return "MemberDto [userId=" + userId + ", userName=" + userName + 
                 ", userPwd=" + userPwd + ", email=" + 
-                email + ", joinDate=" + joinDate + ", userPosts=" + userPosts + "]";
+                email + ", userPosts=" + userPosts + "]";
     }
 
 
