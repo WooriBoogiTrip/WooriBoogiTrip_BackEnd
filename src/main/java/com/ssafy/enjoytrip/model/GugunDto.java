@@ -13,13 +13,13 @@ import org.springframework.stereotype.Component;
 @Setter
 @Component
 public class GugunDto {
-    private int gugunCode;
+    private String gugunCode;
     private String gugunName;
     private int sidoCode;
-	public int getGugunCode() {
+	public String getGugunCode() {
 		return gugunCode;
 	}
-	public void setGugunCode(int gugunCode) {
+	public void setGugunCode(String gugunCode) {
 		this.gugunCode = gugunCode;
 	}
 	public String getGugunName() {

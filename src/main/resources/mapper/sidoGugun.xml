@@ -5,6 +5,6 @@
         SELECT sido_code AS sidoCode, sido_name AS sidoName from sido
     </select>
     <select id="gugunList" parameterType="int" resultType="com.ssafy.enjoytrip.model.GugunDto">
-        SELECT gugunCode, gugunName, sidoCode from busan_gugun
+        SELECT gugunCode, gugunName, sidoCode from busan_gugun_fake
     </select>
 </mapper>
