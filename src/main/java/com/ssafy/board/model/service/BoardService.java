@@ -1,19 +1,20 @@
 package com.ssafy.board.model.service;
 
-import java.sql.SQLException;
-import java.util.List;
 import java.util.Map;
-import com.ssafy.board.model.BoardDto;
-import com.ssafy.util.PageNavigation;
 
+import com.ssafy.board.model.BoardDto;
+import com.ssafy.board.model.BoardListDto;
 
 public interface BoardService {
 
-    void writeArticle(BoardDto boardDto) throws SQLException;
-    List<BoardDto> listArticle(Map<String, Object> param) throws SQLException;
-	int getTotalArticleCount(Map<String, Object> param) throws SQLException;
-	BoardDto getArticle(int articleNo) throws SQLException;
-	void updateHit(int articleNo) throws SQLException;
-	void modifyArticle(BoardDto boardDto) throws SQLException;
-	void deleteArticle(int articleNo) throws SQLException;
+	void writeArticle(BoardDto boardDto) throws Exception;
+	BoardListDto listArticle(Map<String, String> map) throws Exception;
+//	PageNavigation makePageNavigation(Map<String, String> map) throws Exception;
+	BoardDto getArticle(int articleNo) throws Exception;
+	void updateHit(int articleNo) throws Exception;
+	
+	void modifyArticle(BoardDto boardDto) throws Exception;
+//	
+	void deleteArticle(int articleNo) throws Exception;
+	
 }

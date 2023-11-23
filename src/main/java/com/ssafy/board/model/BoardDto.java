@@ -1,68 +1,36 @@
 package com.ssafy.board.model;
 
-import java.time.LocalDateTime;
+import java.util.List;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
+@Getter
+@Setter
+@NoArgsConstructor
+@ToString
+@ApiModel(value = "BoardDto : 게시글정보", description = "게시글의 상세 정보를 나타낸다.")
 public class BoardDto {
 
-    private int noticeNo;
-    private String userId;
-    private String subject;
-    private String content;
-    private int hit;
-    private LocalDateTime registerTime;  
+	@ApiModelProperty(value = "글번호")
+	private int articleNo;
+	@ApiModelProperty(value = "작성자 아이디")
+	private String userId;
+	@ApiModelProperty(value = "작성자 이름")
+	private String userName;
+	@ApiModelProperty(value = "글제목")
+	private String subject;
+	@ApiModelProperty(value = "글내용")
+	private String content;
+	@ApiModelProperty(value = "조회수")
+	private int hit;
+	@ApiModelProperty(value = "작성일")	
+	private String registerTime;
+	@ApiModelProperty(value = "업로드 파일정보")
+	private List<FileInfoDto> fileInfos;
 
-    public int getArticleNo() {
-        return noticeNo;
-    }
-
-    public void setArticleNo(int noticeNo) {
-        this.noticeNo = noticeNo;
-    }
-
-    public String getUserId() {
-        return userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-
-    public String getSubject() {
-        return subject;
-    }
-
-    public void setSubject(String subject) {
-        this.subject = subject;
-    }
-
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
-    }
-
-    public int getHit() {
-        return hit;
-    }
-
-    public void setHit(int hit) {
-        this.hit = hit;
-    }
-
-    public LocalDateTime getRegisterTime() {
-        return registerTime;
-    }
-
-    public void setRegisterTime(LocalDateTime registerTime) {
-        this.registerTime = registerTime;
-    }
-
-    @Override
-    public String toString() {
-        return "NoticeDto [noticeNo=" + noticeNo + ", userId=" + userId +
-               ", subject=" + subject + ", content=" + content +
-               ", hit=" + hit + ", registerTime=" + registerTime + "]";
-    }
 }
