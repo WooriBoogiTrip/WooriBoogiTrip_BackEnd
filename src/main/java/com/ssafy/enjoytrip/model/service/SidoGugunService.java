@@ -9,5 +9,6 @@ public interface SidoGugunService {
 
 	List<SidoDto> sidoList();
 	List<GugunDto> gugunList();
+	List<GugunDto> gugunList_fake();
 
 }

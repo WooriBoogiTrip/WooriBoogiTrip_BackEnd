@@ -34,6 +34,12 @@ public class AttractionController {
         List<GugunDto> gugunList = sidoGugunService.gugunList();
         return new ResponseEntity<>(gugunList, HttpStatus.OK);
     }
+    
+    @GetMapping("/gugun_fake")
+    public ResponseEntity<List<GugunDto>> getGugun_fake() {
+        List<GugunDto> gugunList = sidoGugunService.gugunList_fake();
+        return new ResponseEntity<>(gugunList, HttpStatus.OK);
+    }
 
     @GetMapping("/list")
     public ResponseEntity<List<AttractionInfoDto>> getList(

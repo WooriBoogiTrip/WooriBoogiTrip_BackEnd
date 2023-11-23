@@ -1,21 +1,18 @@
 package com.ssafy.plan;
 
-import java.time.LocalDateTime;
 import java.util.List;
 
 public class PlanDto {
-    private Long id;
+    private Long planId;
     private Long userId;
     private String title;
     private String description;
-    private LocalDate startDate;
-    private LocalDate endDate;
     private List<Long> attractionIds;
-	public Long getId() {
-		return id;
+	public Long getPlanId() {
+		return planId;
 	}
-	public void setId(Long id) {
-		this.id = id;
+	public void setPlanId(Long planId) {
+		this.planId = planId;
 	}
 	public Long getUserId() {
 		return userId;
@@ -34,18 +31,6 @@ public class PlanDto {
 	}
 	public void setDescription(String description) {
 		this.description = description;
-	}
-	public LocalDate getStartDate() {
-		return startDate;
-	}
-	public void setStartDate(LocalDate startDate) {
-		this.startDate = startDate;
-	}
-	public LocalDate getEndDate() {
-		return endDate;
-	}
-	public void setEndDate(LocalDate endDate) {
-		this.endDate = endDate;
 	}
 	public List<Long> getAttractionIds() {
 		return attractionIds;

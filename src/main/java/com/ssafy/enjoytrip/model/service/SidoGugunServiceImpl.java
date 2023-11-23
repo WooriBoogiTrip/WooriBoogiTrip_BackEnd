@@ -25,4 +25,9 @@ public class SidoGugunServiceImpl implements SidoGugunService {
 		return sidoGugunDao.gugunList();
 	}
 
+	@Override
+	public List<GugunDto> gugunList_fake() {
+		return sidoGugunDao.gugunList_fake();
+	}
+
 }
