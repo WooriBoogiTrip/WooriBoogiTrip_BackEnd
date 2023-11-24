@@ -7,8 +7,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
-import org.springframework.security.oauth2.client.authentication.OAuth2AuthenticationToken;
-import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -54,15 +52,6 @@ public class MemberController {
         	e.printStackTrace();
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
-    }
-    
-    @GetMapping("/oauth2/login")
-    public ResponseEntity<OAuth2AuthenticationToken> oauth2Login(OAuth2AuthenticationToken authentication) {
-        // OAuth2 인증을 성공한 후의 로직
-        OAuth2User oAuth2User = authentication.getPrincipal();
-        // MemberDto memberDto = convertToMemberDto(oAuth2User); // 필요에 따라 변환
-        // session.setAttribute("userinfo", memberDto); // 세션에 사용자 정보 설정
-        return new ResponseEntity<>(authentication, HttpStatus.OK);
     }
 
     @PostMapping("/login")

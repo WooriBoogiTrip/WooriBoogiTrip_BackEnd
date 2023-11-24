@@ -12,4 +12,5 @@ public interface SidoGugunDao {
 	
 	List<SidoDto> sidoList();
 	List<GugunDto> gugunList();
+	List<GugunDto> gugunList_fake();
 }

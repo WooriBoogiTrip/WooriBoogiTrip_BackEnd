@@ -1,7 +1,6 @@
 package com.ssafy.member.model.service;
 
 import java.util.List;
-
 import com.ssafy.board.model.BoardDto;
 import com.ssafy.member.model.MemberDto;
 

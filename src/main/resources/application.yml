@@ -7,9 +7,14 @@ spring:
   mvc:
     pathmatch:
       matching-strategy: ANT_PATH_MATCHER
-#spring.security.oauth2.client.registration.google.client-id=클라이언트ID
-#spring.security.oauth2.client.registration.google.client-secret=클라이언트시크릿
-#spring.security.oauth2.client.registration.google.scope=profile,email
+#  security:
+#    oauth2:
+#      client:
+#        registration:
+#          google:
+#            client-id: ${CLIENT_ID}
+#            client-secret: ${CLIENT_SECRET}
+#            scope: profile,email
           
   mail:
     host: smtp.gmail.com

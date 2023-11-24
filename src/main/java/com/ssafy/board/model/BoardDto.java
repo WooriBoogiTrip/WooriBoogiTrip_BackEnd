@@ -32,5 +32,19 @@ public class BoardDto {
 	private String registerTime;
 	@ApiModelProperty(value = "업로드 파일정보")
 	private List<FileInfoDto> fileInfos;
+	public BoardDto(int articleNo, String userId, String userName, String subject, String content, int hit,
+			String registerTime, List<FileInfoDto> fileInfos) {
+		super();
+		this.articleNo = articleNo;
+		this.userId = userId;
+		this.userName = userName;
+		this.subject = subject;
+		this.content = content;
+		this.hit = hit;
+		this.registerTime = registerTime;
+		this.fileInfos = fileInfos;
+	}
+	
+	
 
 }

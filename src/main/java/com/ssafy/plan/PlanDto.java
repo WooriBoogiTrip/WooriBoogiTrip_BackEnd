@@ -1,43 +1,27 @@
 package com.ssafy.plan;
 
+import javax.persistence.*;
+
+import lombok.Getter;
+import lombok.Setter;
+
+import java.util.ArrayList;
 import java.util.List;
 
+@Getter
+@Setter
 public class PlanDto {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long planId;
+
+    @Column(nullable = false)
     private Long userId;
+
     private String title;
     private String description;
-    private List<Long> attractionIds;
-	public Long getPlanId() {
-		return planId;
-	}
-	public void setPlanId(Long planId) {
-		this.planId = planId;
-	}
-	public Long getUserId() {
-		return userId;
-	}
-	public void setUserId(Long userId) {
-		this.userId = userId;
-	}
-	public String getTitle() {
-		return title;
-	}
-	public void setTitle(String title) {
-		this.title = title;
-	}
-	public String getDescription() {
-		return description;
-	}
-	public void setDescription(String description) {
-		this.description = description;
-	}
-	public List<Long> getAttractionIds() {
-		return attractionIds;
-	}
-	public void setAttractionIds(List<Long> attractionIds) {
-		this.attractionIds = attractionIds;
-	} 
-    
-    
+
+
+    private List<Long> attractionIds = new ArrayList<>();
+
 }
