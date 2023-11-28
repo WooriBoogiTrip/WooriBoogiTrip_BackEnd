@@ -2,10 +2,12 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ssafy.enjoytrip.model.dao.SidoGugunDao">
     <select id="sidoList" resultType="com.ssafy.enjoytrip.model.SidoDto">
-        SELECT * from sido
+        SELECT sido_code AS sidoCode, sido_name AS sidoName from sido
     </select>
     <select id="gugunList" parameterType="int" resultType="com.ssafy.enjoytrip.model.GugunDto">
-        SELECT * from gugun 
-        WHERE sido_code = #{sidoCode}
+        SELECT gugunCode, gugunName, sidoCode from busan_gugun
+    </select>
+    <select id="gugunList_fake" parameterType="int" resultType="com.ssafy.enjoytrip.model.GugunDto">
+        SELECT gugunCode, gugunName, sidoCode from busan_gugun_fake
     </select>
 </mapper>

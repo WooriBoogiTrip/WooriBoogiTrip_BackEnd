@@ -29,28 +29,36 @@ public class AttractionController {
         return new ResponseEntity<>(sidoList, HttpStatus.OK);
     }
 
-    @GetMapping("/gugun/{sidoCode}")
-    public ResponseEntity<List<GugunDto>> getGugun(@PathVariable int sidoCode) {
-        List<GugunDto> gugunList = sidoGugunService.gugunList(sidoCode);
+    @GetMapping("/gugun")
+    public ResponseEntity<List<GugunDto>> getGugun() {
+        List<GugunDto> gugunList = sidoGugunService.gugunList();
+        return new ResponseEntity<>(gugunList, HttpStatus.OK);
+    }
+    
+    @GetMapping("/gugun_fake")
+    public ResponseEntity<List<GugunDto>> getGugun_fake() {
+        List<GugunDto> gugunList = sidoGugunService.gugunList_fake();
         return new ResponseEntity<>(gugunList, HttpStatus.OK);
     }
 
     @GetMapping("/list")
     public ResponseEntity<List<AttractionInfoDto>> getList(
             @RequestParam(required = false) Integer contentTypeId,
-            @RequestParam(required = false) Integer sidoCode,
-            @RequestParam(required = false) Integer gugunCode) {
+            @RequestParam(required = false) Integer gugunCode,
+            @RequestParam(required = false) String keyword
+            ) {
         AttractionInfoDto info = new AttractionInfoDto();
 
         if (contentTypeId != null) {
             info.setContentTypeId(contentTypeId);
         }
-        if (sidoCode != null) {
-            info.setSidoCode(sidoCode);
-        }
         if (gugunCode != null) {
             info.setGugunCode(gugunCode);
         }
+        if (keyword != null) {
+        	info.setTitle(keyword);
+        }
+        
         List<AttractionInfoDto> attractionList = attractionService.selectAttractioninfo(info);
         return new ResponseEntity<>(attractionList, HttpStatus.OK);
     }

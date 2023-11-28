@@ -8,6 +8,7 @@ import com.ssafy.enjoytrip.model.GugunDto;
 public interface SidoGugunService {
 
 	List<SidoDto> sidoList();
-	List<GugunDto> gugunList(int sidoCode);
+	List<GugunDto> gugunList();
+	List<GugunDto> gugunList_fake();
 
 }

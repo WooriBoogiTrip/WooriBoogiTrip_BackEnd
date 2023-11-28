@@ -7,6 +7,15 @@ spring:
   mvc:
     pathmatch:
       matching-strategy: ANT_PATH_MATCHER
+#  security:
+#    oauth2:
+#      client:
+#        registration:
+#          google:
+#            client-id: ${CLIENT_ID}
+#            client-secret: ${CLIENT_SECRET}
+#            scope: profile,email
+          
   mail:
     host: smtp.gmail.com
     port: 587

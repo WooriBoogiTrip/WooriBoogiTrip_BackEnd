@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ssafy.plan.mapper.PlanMapper">
+    <insert id="insertPlan">
+        INSERT INTO plans (userId, title, description, attractionIds)
+        VALUES (#{userId}, #{title}, #{description}, #{attractionIds})
+    </insert>
+
+    <select id="selectPlansByUserId" resultType="com.ssafy.plan.PlanDto">
+        SELECT * FROM plans WHERE userId = #{userId}
+    </select>
+
+    <!-- 기타 필요한 SQL 쿼리 -->
+</mapper>
